@@ -1,22 +1,28 @@
 {
   "scripts": {
-    "start": "node src/backend/app.js",
+    "start": "node src/backend/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config webpack.dev.js --open",
-    "build-css": "sass src/frontend/styles/splash.scss src/frontend/styles/splash.css"
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
     "@babel/preset-env": "^7.26.9",
     "babel-loader": "^9.2.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
     "glob": "^11.0.1",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "npmlog": "^7.0.1",
     "rimraf": "^6.0.1",
     "sass": "^1.85.0",
+    "style-loader": "^4.0.0",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "workbox-webpack-plugin": "^7.3.0"
   }
 }
