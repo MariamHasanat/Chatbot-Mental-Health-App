@@ -3,10 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    splash: './src/frontend/views/splash.js'
+},
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js', // Use contenthash for cache-busting in production
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -40,8 +43,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      template: './src/frontend/views/splash.html',
+      filename: 'splash.html',
+      chunks: ['splash'],
+  }),
+  new HtmlWebpackPlugin({
       template: './src/frontend/views/index.html',
-      filename: 'index.html', // Output HTML file in dist folder
-    }),
+      filename: 'index.html',
+      chunks: ['main'],
+  }),
   ],
 };
