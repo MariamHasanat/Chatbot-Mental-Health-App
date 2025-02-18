@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Mental Health Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    Hello
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    
+    <div class="container">
+        <div class="left-side">
+            <div class="img-cont">
+                <img src="/src/frontend/images/Frame 18.svg" alt="Chatbot" class="hi-there">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="welcome-text">
+                <h1>Welcome Back!</h1>
+                <p>Welcome Back! Please Enter Your Details!</p>
+            </div>
+            <form>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Please enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter 6 character or more" required>
+                <div class="show-password-container">
+                    <input type="checkbox" id="showPassword">
+                    <label for="showPassword">Show Password</label>
+                </div>
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+            <p class="bottom-text">Don’t have an account? <a href="https://Sing-up">Sing up</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
