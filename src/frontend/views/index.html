@@ -5,39 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Mental Health Application</title>
-    <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-    <button id="themeToggle" class="theme-toggle">🌙</button>
-    
-    <div class="container">
-        <div class="left-side">
-            <div class="img-cont">
-                <img src="/src/frontend/images/Frame 18.svg" alt="Chatbot" class="hi-there">
+    <body>
+        <div id="header-container"></div>
+        <div class="container">
+            <div class="image-container">
+                <img src="../assets/chat-bot-bro-1.svg" alt="Chat bot" class="image">
+            </div>
+            <div class="text-container">
+                <h1 class="seren-title">Seren</h1>
+                <h2 class="subtitle">Providing the Best Solutions</h2>
+                <p class="description">AI Assistant that can answer any of your questions. just ask!</p>
+                <button class="start-button" onclick="Client.startConversation()">Start a Conversation</button>
             </div>
         </div>
-        <div class="right-side">
-            <div class="welcome-text">
-                <h1>Welcome Back!</h1>
-                <p>Welcome Back! Please Enter Your Details!</p>
-            </div>
-            <form>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Please enter your email" required>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter 6 character or more" required>
-                <div class="show-password-container">
-                    <input type="checkbox" id="showPassword">
-                    <label for="showPassword">Show Password</label>
-                </div>
-                <button type="submit" class="login-btn">Log in</button>
-            </form>
-            <p class="bottom-text">Don’t have an account? <a href="https://Sing-up">Sing up</a></p>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
+        <script>
+            fetch("/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
 
+                    const script = document.createElement("script");
+                    script.src = "/js/theme.js";
+                    script.onload = () => console.log("theme.js loaded successfully!");
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
 </html>

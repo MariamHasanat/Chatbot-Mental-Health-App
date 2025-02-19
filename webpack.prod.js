@@ -1,47 +1,59 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js', // Use contenthash for cache-busting in production
-  },
-  module: {
-    rules: [
-      // Babel loader for JS (ES6+ to ES5)
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      // CSS loader for .css files
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      // SCSS loader for .scss files
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      // HTML loader for .html files
-      {
-        test: /\.html$/,
-        use: ['html-loader'],
-      },
+    entry: './src/frontend/index.js',
+    mode: 'production',
+    output: {
+        publicPath: "/",
+        libraryTarget: 'var',
+        library: 'Client'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[name][ext]',
+                },
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/index.html",
+            filename: "./index.html",
+        }),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: "./src/frontend/views/header.html", to: "header.html" },
+                { from: "./src/frontend/views/login.html", to: "login.html" }, 
+                { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
+                { from: "./src/frontend/assets/", to: "assets/" },
+            ],
+        }),
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/frontend/views/index.html',
-      filename: 'index.html', // Output HTML file in dist folder
-    }),
-  ],
-};
+    devServer: {
+        static: {
+            directory: path.join(__dirname, "dist"),
+        },
+        port: 6060,
+        allowedHosts: 'all'
+    }
+}
