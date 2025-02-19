@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: #333; 
+    color: #fff; 
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+    background-color: transparent; 
+    color: #181818; 
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-section h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #1B4332;
+}
+
+
+.left-section .robot-image {
+    width: 80%;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.right-section {
+    padding: 40px;
+    flex: 1;
+    background-color: #fff; 
+}
+
+.right-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #121212; 
+}
+
+.right-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.right-section input[type="text"],
+.right-section input[type="email"],
+.right-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 48px; 
+    font-size: 1rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center; 
+    margin-top: 10px; 
+}
+
+.right-section .signup-button {
+    background-color: #66BB6A; 
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 48px; 
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%; 
+    max-width: 430px;
+}
+
+.right-section .signup-button:hover {
+    background-color: #388E3C; 
+}
+
+.right-section p {
+    margin-top: 20px;
+}
+
+.right-section p a {
+    color: #FFB74D; 
+    text-decoration: none;
+}
+
+.right-section p a:hover {
+    color: #FF9800; 
+}
+
+.last-p{
+    text-align: center;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #4CAF50; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+
+#theme-toggle:hover {
+    background-color: #388E3C; 
+}
+
+body.dark .left-section {
+    background-color: #555; 
+}
+
+body.dark .right-section {
+    background-color: #444; 
+}
+
+body.dark .right-section h2 {
+    color: white; 
+}
+
+body.dark .left-section h1 {
+    color: #A3B18A; 
+}
+
