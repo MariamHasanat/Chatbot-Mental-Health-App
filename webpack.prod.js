@@ -7,7 +7,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     entry: {
         index: './src/frontend/index.js',
-        login: './src/frontend/login.js'
+        login: './src/frontend/login.js',
+        signup: './src/frontend/signup.js',
     },
     mode: 'production',
     output: {
@@ -42,6 +43,10 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/login.html",
             filename: "./login.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/signup.html",
+            filename: "./signup.html",
         }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
