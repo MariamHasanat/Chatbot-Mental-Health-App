@@ -1,3 +1,8 @@
+import './styles/login.scss';
+import './styles/styles.scss';
+import './assets/chat-bot-bro-1.svg';
+
+
 const passwordInput = document.getElementById('password');
 const showPasswordCheckbox = document.getElementById('showPassword');
 const themeToggle = document.getElementById('themeToggle');

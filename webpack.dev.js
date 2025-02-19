@@ -6,7 +6,10 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
-    entry: './src/frontend/index.js',
+    entry: {
+        index: './src/frontend/index.js',
+        login: './src/frontend/login.js'
+    },
     output: {
         publicPath: "/",
         libraryTarget: 'var',
@@ -21,21 +24,15 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            },
-            {
-                test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            }, {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                filename: 'assets/[name][ext]', 
-            },
+                    filename: 'assets/[name][ext]',
+                },
             }
         ]
     },
@@ -43,6 +40,10 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/index.html",
             filename: "./index.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/login.html",
+            filename: "./login.html",
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
@@ -52,15 +53,14 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }), 
+        }),
         new CopyPlugin({
             patterns: [
                 { from: "./src/frontend/views/header.html", to: "header.html" },
-                { from: "./src/frontend/views/login.html", to: "login.html" },
                 { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
                 { from: "./src/frontend/assets/", to: "assets/" },
             ],
-          }),
+        }),
     ],
     devServer: {
         static: {

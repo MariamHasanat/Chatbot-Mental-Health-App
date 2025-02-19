@@ -1,20 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Chatbot Mental Health Application</title>
-
 </head>
 
-<body>
-    <button id="themeToggle" class="theme-toggle">🌙</button>
-
-    <div class="container">
+<body class="body-login">
+    <div id="header-container"></div>
+   
+    <div class="container-login">
         <div class="left-side">
-            <div class="img-cont">
-                <img src="/src/frontend/images/Frame 18.svg" alt="Chatbot" class="hi-there">
+            <div class="image-container">
+                <img src="../assets/chat-bot-login.svg" alt="Chat bot" class="image">
             </div>
         </div>
         <div class="right-side">
@@ -33,11 +32,25 @@
                 </div>
                 <button type="submit" class="login-btn">Log in</button>
             </form>
-            <p class="bottom-text">Don’t have an account? <a href="https://Sing-up">Sing up</a></p>
+            <p class="bottom-text">Don’t have an account? <a href="./signup.html">Sign up</a></p>
         </div>
     </div>
 
-    <script defer src="script.js"></script>
+
+    <script>
+        fetch("/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+
+                const script = document.createElement("script");
+                script.src = "/js/theme.js";
+                script.onload = () => console.log("theme.js loaded successfully!");
+                document.body.appendChild(script);
+            });
+
+      
+    </script>
 
 </body>
 

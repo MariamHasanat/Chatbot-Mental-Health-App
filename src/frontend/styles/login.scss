@@ -1,4 +1,4 @@
-body {
+.body-login {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@ body {
     font-size: 18px; 
 }
 
-.container {
+.container-login {
     display: flex;
     width: 90%; 
     max-width: 1200px;
@@ -22,7 +22,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .container {
+    .container-login {
         flex-direction: column;
         transform: scale(1); 
     }

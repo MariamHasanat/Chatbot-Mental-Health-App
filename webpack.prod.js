@@ -5,7 +5,10 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/frontend/index.js',
+    entry: {
+        index: './src/frontend/index.js',
+        login: './src/frontend/login.js'
+    },
     mode: 'production',
     output: {
         publicPath: "/",
@@ -36,6 +39,10 @@ module.exports = {
             template: "./src/frontend/views/index.html",
             filename: "./index.html",
         }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/login.html",
+            filename: "./login.html",
+        }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true,
@@ -43,7 +50,6 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: "./src/frontend/views/header.html", to: "header.html" },
-                { from: "./src/frontend/views/login.html", to: "login.html" }, 
                 { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
                 { from: "./src/frontend/assets/", to: "assets/" },
             ],
