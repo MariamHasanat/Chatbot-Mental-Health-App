@@ -9,6 +9,7 @@ module.exports = {
         index: './src/frontend/index.js',
         login: './src/frontend/login.js',
         signup: './src/frontend/signup.js',
+        homePage: './src/frontend/home-page.js',
     },
     mode: 'production',
     output: {
@@ -47,6 +48,10 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/signup.html",
             filename: "./signup.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/home-page.html",
+            filename: "./home-page.html",
         }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
