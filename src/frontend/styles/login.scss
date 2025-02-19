@@ -1,10 +1,9 @@
 .body-login {
-    font-family: Arial, sans-serif;
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #EAF6F1;
+    height: 100vh; 
     margin: 0;
     font-size: 18px; 
 }
@@ -13,9 +12,7 @@
     display: flex;
     width: 90%; 
     max-width: 1200px;
-    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transform: scale(1.1); 
     transform-origin: center; 
@@ -43,7 +40,6 @@
 
 .left-side {
     flex: 1;
-    background-color: #DFF4E6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +49,7 @@
 }
 
 .left-side img {
-    width: 300px; 
+    width: 500px; 
     max-width: 100%; 
 }
 
@@ -203,6 +199,14 @@ body.dark-theme input {
     background-color: #444;
     color: #fff;
     border: 1px solid #888;
+}
+
+body.dark-theme .welcome-text h1 {
+    color: #fff;
+}
+
+body.dark-theme .welcome-text p {
+    color: #ddd;
 }
 
 body.dark-theme input:focus {
