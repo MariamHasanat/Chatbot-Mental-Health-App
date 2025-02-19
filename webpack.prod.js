@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/frontend/index.js',
     mode: 'production',
     output: {
-        publicPath: "/", 
+        publicPath: "/",
         libraryTarget: 'var',
         library: 'Client'
     },
@@ -20,19 +20,14 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-                test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource', 
+                type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name][ext]', 
+                    filename: 'assets/[name][ext]',
                 },
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"],
             }
         ]
     },
@@ -47,11 +42,11 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-              { from: "./src/frontend/views/header.html", to: "header.html" }, 
-              { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
-              { from: "./src/frontend/assets/", to: "assets/" },
+                { from: "./src/frontend/views/header.html", to: "header.html" },
+                { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
+                { from: "./src/frontend/assets/", to: "assets/" },
             ],
-          }),
+        }),
     ],
     devServer: {
         static: {
