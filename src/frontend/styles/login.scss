@@ -1,27 +1,27 @@
 .body-login {
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    height: 100vh;
     margin: 0;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 .container-login {
     display: flex;
-    width: 90%; 
+    width: 90%;
     max-width: 1200px;
     border-radius: 10px;
     overflow: hidden;
-    transform: scale(1.1); 
-    transform-origin: center; 
+    transform: scale(1.1);
+    transform-origin: center;
 }
 
 @media (max-width: 768px) {
     .container-login {
         flex-direction: column;
-        transform: scale(1); 
+        transform: scale(1);
     }
 
     .left-side,
@@ -49,8 +49,8 @@
 }
 
 .left-side img {
-    width: 500px; 
-    max-width: 100%; 
+    width: 500px;
+    max-width: 100%;
 }
 
 .right-side {
@@ -65,14 +65,14 @@
 }
 
 .welcome-text h1 {
-    font-size: 32px; 
+    font-size: 32px;
     color: #333;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .welcome-text p {
-    font-size: 20px; 
+    font-size: 20px;
     color: #666;
 }
 
@@ -83,22 +83,22 @@ label {
 
 input {
     width: 100%;
-    padding: 12px; 
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 .login-btn {
     width: 100%;
-    padding: 15px; 
+    padding: 15px;
     background-color: #A3D9A5;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 22px; 
+    font-size: 22px;
     font-weight: bold;
     margin-top: 20px;
 }
@@ -171,7 +171,7 @@ body.dark-theme {
     color: #fff;
 }
 
-body.dark-theme .container {
+body.dark-theme .container-login {
     background-color: #222;
 }
 
@@ -201,14 +201,6 @@ body.dark-theme input {
     border: 1px solid #888;
 }
 
-body.dark-theme .welcome-text h1 {
-    color: #fff;
-}
-
-body.dark-theme .welcome-text p {
-    color: #ddd;
-}
-
 body.dark-theme input:focus {
     border-color: #A3D9A5;
 }
@@ -219,4 +211,12 @@ body.dark-theme .login-btn {
 
 body.dark-theme .login-btn:hover {
     background-color: #4C964C;
+}
+
+body.dark-theme .welcome-text h1 {
+    color: #fff;
+}
+
+body.dark-theme .welcome-text p {
+    color: #ddd;
 }

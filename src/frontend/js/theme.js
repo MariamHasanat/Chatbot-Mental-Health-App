@@ -1,10 +1,9 @@
 
-const themes = ["light", "dark", "custom"];
+const themes = ["light", "dark"];
 
 const themeIcons = {
     light: "/assets/light-mode-icon.png", 
     dark: "/assets/dark-mode-icon.png", 
-    custom: "/assets/custom-mode-icon.png"
 };
 
 function applyTheme(themeName) {
