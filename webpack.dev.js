@@ -6,6 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
+
     entry: {
         index: './src/frontend/index.js',
         login: './src/frontend/login.js',
@@ -16,6 +17,7 @@ module.exports = {
         publicPath: "/",
         libraryTarget: 'var',
         library: 'Client'
+
     },
     mode: 'development',
     devtool: 'source-map',
