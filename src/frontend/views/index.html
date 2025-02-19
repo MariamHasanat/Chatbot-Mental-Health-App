@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Mental Health Application</title>
 </head>
-<body>
-    Hello
-</body>
+    <body>
+        <div id="header-container"></div>
+        <div class="container">
+            <div class="image-container">
+                <img src="../assets/chat-bot-bro-1.svg" alt="Chat bot" class="image">
+            </div>
+            <div class="text-container">
+                <h1 class="seren-title">Seren</h1>
+                <h2 class="subtitle">Providing the Best Solutions</h2>
+                <p class="description">AI Assistant that can answer any of your questions. just ask!</p>
+                <button class="start-button"><a href="./login.html">Start a Conversation</a></button>
+            </div>
+        </div>
+
+        <script>
+            fetch("/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+
+                    const script = document.createElement("script");
+                    script.src = "/js/theme.js";
+                    script.onload = () => console.log("theme.js loaded successfully!");
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
 </html>
