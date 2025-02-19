@@ -43,6 +43,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: "./src/frontend/views/header.html", to: "header.html" },
+                { from: "./src/frontend/views/login.html", to: "login.html" }, 
                 { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
                 { from: "./src/frontend/assets/", to: "assets/" },
             ],
