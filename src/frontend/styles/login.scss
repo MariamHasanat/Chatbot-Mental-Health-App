@@ -1,5 +1,4 @@
 .body-login {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,9 +82,10 @@ label {
 
 input {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    padding-left: 25px;
+    border: 1px solid #E0E0E0;
     border-radius: 8px;
     font-size: 18px;
 }
@@ -96,7 +96,7 @@ input {
     background-color: #A3D9A5;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 48px;
     cursor: pointer;
     font-size: 22px;
     font-weight: bold;
@@ -136,18 +136,30 @@ input {
 }
 
 .show-password-container input[type="checkbox"] {
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 5px;
+    appearance: none; 
+    width: 14px; 
+    height: 14px; 
+    border: 2px solid #E0E0E0; 
+    border-radius: 3px;
+    cursor: pointer; 
+    margin-right: 5px; 
+    position: relative;
 }
 
 .show-password-container input[type="checkbox"]:checked {
     background-color: #A3D9A5;
     border-color: #A3D9A5;
+}
+
+.show-password-container input[type="checkbox"]:checked::after {
+    content: ''; 
+    position: absolute;
+    left: 2px; 
+    top: 2px; 
+    width: 8px; 
+    height: 8px; 
+    background-color: #fff; 
+    border-radius: 2px; 
 }
 
 .theme-toggle {
@@ -168,7 +180,7 @@ input {
 
 body.dark-theme {
     background-color: #333;
-    color: #fff;
+    color: #fff !important;
 }
 
 body.dark-theme .container-login {
@@ -219,4 +231,9 @@ body.dark-theme .welcome-text h1 {
 
 body.dark-theme .welcome-text p {
     color: #ddd;
+}
+
+input[type="email"],
+input[type="password"] {
+    border-radius: 48px;  
 }
