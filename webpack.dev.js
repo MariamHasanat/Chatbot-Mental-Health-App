@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require("copy-webpack-plugin");
@@ -24,11 +25,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -40,9 +41,20 @@ module.exports = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+                filename: "styles/[name].css",
+        }),
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/index.html",
             filename: "./index.html",
+        }),
+        new HtmlWebPackPlugin({  
+            template: "./src/frontend/views/chat.html",
+            filename: "chat.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/settings.html", 
+            filename: "settings.html",
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
@@ -58,6 +70,7 @@ module.exports = {
               { from: "./src/frontend/views/header.html", to: "header.html" },
               { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
               { from: "./src/frontend/assets/", to: "assets/" },
+              { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
             ],
           }),
     ],

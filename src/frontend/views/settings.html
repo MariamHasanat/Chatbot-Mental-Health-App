@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./styles/settings.scss">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Seren</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="./assets/home.png" alt="Home"> Home</a></li>
+                <li><a href="chat.html"><img src="./assets/chat.png" alt="Chat"> Chat</a></li>
+                <li><a href="settings.html"><img src="./assets/settings.png" alt="Settings"> Settings</a></li>
+                <li><a href="#"><img src="./assets/logout.png" alt="Logout"> Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Settings Container -->
+    <div class="settings-container">
+        <h1>Customize Your Chatbot</h1>
+
+        <!-- Chatbot Name -->
+        <label for="bot-name">Chatbot Name:</label>
+        <input type="text" id="bot-name" placeholder="Enter chatbot name">
+
+        <!-- Chatbot Gender -->
+        <label>Chatbot Gender:</label>
+        <div class="gender-options">
+            <input type="radio" name="bot-gender" value="male" id="male">
+            <label for="male">Male</label>
+
+            <input type="radio" name="bot-gender" value="female" id="female">
+            <label for="female">Female</label>
+        </div>
+
+        <!-- Chatbot Avatar -->
+        <label>Choose Avatar:</label>
+        <div class="avatar-options">
+            <img src="./assets/bot-male.png" alt="Male Avatar" class="avatar-choice" data-avatar="bot-male.png">
+            <img src="./assets/bot-female.png" alt="Female Avatar" class="avatar-choice" data-avatar="bot-female.png">
+        </div>
+
+        <label for="custom-avatar">Upload Custom Avatar:</label>
+        <input type="file" id="custom-avatar" accept="image/*">
+
+        <button id="save-settings">Save Preferences</button>
+    </div>
+
+    <script src="./js/settings.js"></script>
+
+</body>
+</html>
