@@ -1,8 +1,10 @@
-
-body {
+#home-page{
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
     background-color: var(--bg-color);
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
     color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .slider {
@@ -12,6 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
 }
 
 #greeting {
@@ -29,13 +32,15 @@ body {
 }
 
 #header-home {
+    position: fixed;
+    top: 20px !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+
+    width: 97%;
 }
 
 .slide {
@@ -52,28 +57,12 @@ body {
     display: none;
 }
 
-body.dark .light-mode {
+#home-page.dark .light-mode {
     display: none;
 }
 
-body.dark .dark-mode {
+#home-page.dark .dark-mode {
     display: block;
-}
-
-#toggle-mode {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#toggle-mode:hover {
-    background-color: #666;
 }
 
 .icons-section {
@@ -104,3 +93,10 @@ body.dark .dark-mode {
     font-weight: 400;
 
 }
+
+#header-container{
+    position: absolute;
+    bottom: 100px !important;
+    right: 20px;
+}
+
