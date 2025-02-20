@@ -6,12 +6,6 @@ const themeIcons = {
     dark: "/assets/dark-mode-icon.png",
 };
 
-// function applyTheme(themeName) {
-//     document.documentElement.setAttribute("data-theme", themeName);
-//     localStorage.setItem("theme", themeName);
-//     updateThemeIcon(themeName);
-// }
-
 function applyTheme(themeName) {
     console.log(`Applying theme: ${themeName}`); // 🔍 Debugging log
     document.documentElement.setAttribute("data-theme", themeName);
