@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SVG Animation</title>
 </head>
 <body>
+    <header>
+        <div id="header-home">
+            <div>
+                <img src="../assets/logo.svg" class="light-mode" >
+                <img src="../assets/logo-dark.svg" class="dark-mode" >
+            </div>
+            <div>
+                <h1 id="greeting">Hello, Hanaa 👋</h1>
+            <h2 id="feeling-text">How are you feeling today? 💙</h2>
+            </div>
+        </div>
+    </header>
+    
+    <div class="slider">
+        <img src="../assets/image1.svg" class="slide light-mode active" >
+        <img src="../assets/image2.svg" class="slide light-mode" >
+        <img src="../assets/image3.svg" class="slide light-mode" >
+        
+        <img src="../assets/image1-dark.svg" class="slide dark-mode">
+        <img src="../assets/image2-dark.svg" class="slide dark-mode">
+        <img src="../assets/image3-dark.svg" class="slide dark-mode">
+    </div>
+    
+    <div class="icons-section">
+        <div class="icon" onclick="location.href='chat.html'">
+            <img src="../assets/chat.svg" class="light-mode" alt="Chat">
+            <img src="../assets/chat-dark.svg" class="dark-mode" alt="Chat - Dark">
+            <span>Chat</span>
+        </div>
+        <div class="icon" onclick="location.href='articles.html'">
+            <img src="../assets/articles.svg" class="light-mode" alt="Articles">
+            <img src="../assets/articles-dark.svg" class="dark-mode" alt="Articles - Dark">
+            <span>Articles</span>
+        </div>
+        <div class="icon" onclick="location.href='emergency.html'">
+            <img src="../assets/emergency.svg" class="light-mode" alt="Emergency Info">
+            <img src="../assets/emergency-dark.svg" class="dark-mode" alt="Emergency Info - Dark">
+            <span>Emergency</span>
+        </div>
+        <div class="icon" onclick="location.href='settings.html'">
+            <img src="../assets/settings.svg" class="light-mode" alt="Settings">
+            <img src="../assets/settings-dark.svg" class="dark-mode" alt="Settings - Dark">
+            <span>Settings</span>
+        </div>
+    </div>
     <div id="header-container"></div>
-    home page
-
     <script>
         fetch("/header.html")
             .then(response => response.text())
@@ -21,5 +64,6 @@
                 document.body.appendChild(script);
             });
     </script>
+    
 </body>
 </html>
