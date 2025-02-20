@@ -28,18 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showNextSlide() {
         let isDarkMode = updateMode();
-        let modeClass = isDarkMode ? "dark-mode" : "light-mode";
-
+        let modeSuffix = isDarkMode ? "-dark" : ""; // يضيف "-dark" عند الحاجة
+    
         slides.forEach(slide => slide.classList.remove("active"));
-        let filteredSlides = Array.from(slides).filter(slide => slide.classList.contains(modeClass));
-
-        if (filteredSlides.length > 0) {
-            filteredSlides[index].classList.add("active");
-            index = (index + 1) % filteredSlides.length;
+        
+        let currentSlide = slides[index];
+        currentSlide.classList.add("active");
+    
+        // ✅ تحديث الصورة بناءً على الثيم، بدون تغيير الـ active
+        let img = currentSlide.querySelector("img");
+        if (img) {
+            let baseSrc = img.dataset.baseSrc; // خذ الـ src الأصلي المخزن
+            img.src = baseSrc.replace(".svg", `${modeSuffix}.svg`);
         }
-
-        updateImages(isDarkMode ? 'dark' : 'light');
+    
+        index = (index + 1) % slides.length;
     }
+    
 
     function updateImages(theme) {
         const images = {
@@ -78,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", themeName);
         localStorage.setItem("theme", themeName);
         updateImages(themeName);
+        setTimeout(showNextSlide, 10); // تحديث سريع عند تغيير الثيم
     }
 
     setInterval(showNextSlide, 5000);

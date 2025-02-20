@@ -15,6 +15,13 @@ function applyTheme(themeName) {
     console.log(`Theme set in localStorage: ${localStorage.getItem("theme")}`); // 🔍 Debugging log
 }
 
+// function applyTheme(themeName) {
+//     document.documentElement.setAttribute("data-theme", themeName);
+//     localStorage.setItem("theme", themeName);
+//     updateImages(themeName);
+//     // setTimeout(showNextSlide, 100); // تحديث سريع عند تغيير الثيم
+// }
+
 function updateThemeIcon(theme) {
     const icon = document.getElementById("theme-icon");
     if (!icon) {
