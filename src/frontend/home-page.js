@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(showNextSlide, 5000);
     showNextSlide();
 
-    document.getElementById("themeToggle")?.addEventListener("click", () => {
+    document.getElementById("theme-toggle")?.addEventListener("click", () => {
         let currentTheme = localStorage.getItem("theme") || "light";
         let newTheme = currentTheme === "light" ? "dark" : "light";
         applyTheme(newTheme);

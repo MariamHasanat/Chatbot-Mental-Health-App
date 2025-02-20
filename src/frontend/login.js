@@ -5,7 +5,7 @@ import './assets/chat-bot-bro-1.svg';
 
 const passwordInput = document.getElementById('password');
 const showPasswordCheckbox = document.getElementById('showPassword');
-const themeToggle = document.getElementById('themeToggle');
+const themeToggle = document.getElementById('theme-toggle');
 
 showPasswordCheckbox.addEventListener('change', () => {
     passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
