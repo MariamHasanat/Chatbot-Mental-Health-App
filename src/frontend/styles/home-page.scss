@@ -53,16 +53,26 @@
     opacity: 1;
 }
 
-.dark-mode {
-    display: none;
+/* Default styles for light mode */
+#home-page:not([data-theme="dark"]) {
+    .light-mode {
+        opacity: 1;
+    }
+
+    .dark-mode {
+        opacity: 0;
+    }
 }
 
-#home-page.dark .light-mode {
-    display: none;
-}
+/* Styles for dark mode */
+#home-page[data-theme="dark"] {
+    .light-mode {
+        opacity: 0;
+    }
 
-#home-page.dark .dark-mode {
-    display: block;
+    .dark-mode {
+        opacity: 1;
+    }
 }
 
 .icons-section {
