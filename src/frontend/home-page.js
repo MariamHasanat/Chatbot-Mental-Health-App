@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentTheme = localStorage.getItem("theme") || "light";
         let newTheme = currentTheme === "light" ? "dark" : "light";
         applyTheme(newTheme);
-        setTimeout(showNextSlide, 300);
     });
 
     let savedTheme = localStorage.getItem("theme") || "light";
