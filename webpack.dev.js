@@ -7,11 +7,18 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
-    entry: './src/frontend/index.js',
+
+    entry: {
+        index: './src/frontend/index.js',
+        login: './src/frontend/login.js',
+        signup: './src/frontend/signup.js',
+        homePage: './src/frontend/home-page.js',
+    },
     output: {
         publicPath: "/",
         libraryTarget: 'var',
         library: 'Client'
+
     },
     mode: 'development',
     devtool: 'source-map',
@@ -32,11 +39,15 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             {
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            }, {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                filename: 'assets/[name][ext]', 
-            },
+                    filename: 'assets/[name][ext]',
+                },
             }
         ]
     },
@@ -56,6 +67,18 @@ module.exports = {
             template: "./src/frontend/views/settings.html", 
             filename: "settings.html",
         }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/login.html",
+            filename: "./login.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/signup.html",
+            filename: "./signup.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/home-page.html",
+            filename: "./home-page.html",
+        }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
@@ -64,7 +87,7 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }), 
+        }),
         new CopyPlugin({
             patterns: [
               { from: "./src/frontend/views/header.html", to: "header.html" },
@@ -72,7 +95,7 @@ module.exports = {
               { from: "./src/frontend/assets/", to: "assets/" },
               { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
             ],
-          }),
+        }),
     ],
     devServer: {
         static: {
@@ -80,6 +103,6 @@ module.exports = {
         },
         port: 6060,
         allowedHosts: 'all',
-        historyApiFallback: true, 
+        historyApiFallback: true,
     }
 }
