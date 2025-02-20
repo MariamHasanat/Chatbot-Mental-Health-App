@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* 🌟 Default Light Mode */
 :root {
     --bg-color: #F7F7F7;
     --sidebar-bg: #1B4332;
@@ -41,7 +40,7 @@ body {
 .sidebar {
     width: 210px;
     background: var(--sidebar-bg);
-    color: var(--sidebar-text);
+    color: var(--sidebar-text) !important;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -69,12 +68,14 @@ body {
     align-items: center;
     padding: 12px;
     cursor: pointer;
+    color: var(--sidebar-text) !important;
     transition: background 0.3s ease-in-out;
     border-radius: 10px;
 }
 
 .sidebar nav ul li:hover {
     background: rgba(255, 255, 255, 0.2);
+    color: var(--sidebar-text) !important;
     border-radius: 10px;
 }
 
@@ -82,6 +83,15 @@ body {
     width: 20px;
     margin-right: 10px;
     
+}
+.sidebar nav ul li:active,
+.sidebar nav ul li:focus,
+.sidebar nav ul li:visited {
+    color: var(--sidebar-text) !important;
+    background: none;
+}
+.sidebar nav ul li:focus-visible {
+    outline: none;
 }
 
 .main-container {

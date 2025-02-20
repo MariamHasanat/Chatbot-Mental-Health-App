@@ -26,14 +26,13 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-
-                test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-            },
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"]
-            },
+                test: /\.s[ac]ss$/i,
+                use: [
+                    process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
+            },            
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',

@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatInput = document.getElementById("chat-input");
     const sendBtn = document.getElementById("send-btn");
 
-    // ✅ Debugging: Check if elements exist
     console.log("Checking Elements:");
     console.log("chat-box:", chatBox);
     console.log("chat-input:", chatInput);
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         messageElement.appendChild(messageText);
         chatBox.appendChild(messageElement);
 
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto scroll to bottom
+        chatBox.scrollTop = chatBox.scrollHeight; 
     }
 
     function botResponse(userMessage) {
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ✅ Ensure send button exists before adding event listener
     if (sendBtn) {
         sendBtn.addEventListener("click", handleSendMessage);
         console.log("✅ Event listener added to send button");
