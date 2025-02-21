@@ -65,7 +65,6 @@
 
 .welcome-text h1 {
     font-size: 32px;
-    color: #333;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -136,13 +135,13 @@ input {
 }
 
 .show-password-container input[type="checkbox"] {
-    appearance: none; 
-    width: 14px; 
-    height: 14px; 
-    border: 2px solid #E0E0E0; 
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #E0E0E0;
     border-radius: 3px;
-    cursor: pointer; 
-    margin-right: 5px; 
+    cursor: pointer;
+    margin-right: 5px;
     position: relative;
 }
 
@@ -152,14 +151,14 @@ input {
 }
 
 .show-password-container input[type="checkbox"]:checked::after {
-    content: ''; 
+    content: '';
     position: absolute;
-    left: 2px; 
-    top: 2px; 
-    width: 8px; 
-    height: 8px; 
-    background-color: #fff; 
-    border-radius: 2px; 
+    left: 2px;
+    top: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 2px;
 }
 
 .theme-toggle {
@@ -167,7 +166,6 @@ input {
     top: 20px;
     right: 20px;
     font-size: 30px;
-    color: #333;
     background: none;
     border: none;
     cursor: pointer;
@@ -179,16 +177,15 @@ input {
 }
 
 body.dark-theme {
-    background-color: #333;
-    color: #fff !important;
+    background-color: var(--bg-color)
 }
 
 body.dark-theme .container-login {
-    background-color: #222;
+    background-color: var(--bg-color);
 }
 
 body.dark-theme .theme-toggle {
-    color: #fff;
+    color: var( --text-color);
 }
 
 body.dark-theme h1,
@@ -196,7 +193,7 @@ body.dark-theme p,
 body.dark-theme label,
 body.dark-theme input::placeholder,
 body.dark-theme .bottom-text {
-    color: #fff;
+    color: var(--text-color);
 }
 
 body.dark-theme .bottom-text a {
@@ -226,14 +223,15 @@ body.dark-theme .login-btn:hover {
 }
 
 body.dark-theme .welcome-text h1 {
-    color: #fff;
+    color: var(--text-color);
 }
 
 body.dark-theme .welcome-text p {
-    color: #ddd;
+    color: var(--text-sec-color);
+
 }
 
 input[type="email"],
 input[type="password"] {
-    border-radius: 48px;  
+    border-radius: 48px;
 }
