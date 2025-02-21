@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     let slides = document.querySelectorAll(".slide");
     let index = 0;
+    let intervalId;
+
+    if (!document.querySelector(".slide")) return; // تأكد أن الكود يعمل فقط بصفحة السلايدر
 
     function updateMode() {
         return document.documentElement.getAttribute("data-theme") === "dark";
@@ -17,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isDarkMode = updateMode();
         const modeSuffix = isDarkMode ? "-dark" : "";
 
-      
-        if (slides && slides.length > 0) {
+        if (slides.length > 0) {
             slides.forEach(slide => slide.classList.remove("active"));
 
             if (index >= 0 && index < slides.length) {
@@ -27,73 +29,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const img = currentSlide.querySelector("img");
                 if (img) {
-                    updateImageSrc(img, modeSuffix); 
+                    updateImageSrc(img, modeSuffix);
                 }
             } else {
                 console.error("Index out of bounds:", index);
             }
 
-            index = (index + 1) % slides.length; 
+            index = (index + 1) % slides.length;
         } else {
             console.error("No slides found.");
         }
     }
 
-
-    function updateImages(theme) {
-        const images = {
-            light: {
-                articles: "/assets/articles.svg",
-                chat: "/assets/chat.svg",
-                emergency: "/assets/emergency.svg",
-                settings: "/assets/settings.svg",
-                logo: "/assets/logo.svg",
-                string1: "/assets/image1.svg",
-                string2: "/assets/image2.svg",
-                string3: "/assets/image3.svg",
-
-            },
-            dark: {
-                articles: "/assets/articles-dark.svg",
-                chat: "/assets/chat-dark.svg",
-                emergency: "/assets/emergency-dark.svg",
-                settings: "/assets/settings-dark.svg",
-                logo: "/assets/logo-dark.svg",
-                string1: "/assets/image1-dark.svg",
-                string2: "/assets/image2-dark.svg",
-                string3: "/assets/image3-dark.svg",
-            }
-        };
-
-        document.querySelectorAll("[data-icon]").forEach(img => {
-            let key = img.dataset.icon;
-            if (key && images[theme][key]) {
-                img.src = images[theme][key];
-            }
-        });
+    function startSlideshow() {
+        if (intervalId) clearInterval(intervalId); // حذف أي Interval قديم
+        showNextSlide();
+        intervalId = setInterval(showNextSlide, 5000);
     }
 
-    function applyTheme(themeName) {
-        document.documentElement.setAttribute("data-theme", themeName);
-        localStorage.setItem("theme", themeName);
-        updateImages(themeName);
-        setTimeout(showNextSlide, 10);
+    function stopSlideshow() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            console.log("Slideshow stopped.");
+        }
     }
 
-    setInterval(showNextSlide, 5000);
-    showNextSlide();
+    startSlideshow();
 
     document.getElementById("theme-toggle")?.addEventListener("click", () => {
         let currentTheme = localStorage.getItem("theme") || "light";
         let newTheme = currentTheme === "light" ? "dark" : "light";
-        applyTheme(newTheme);
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        showNextSlide();
     });
 
-    let savedTheme = localStorage.getItem("theme") || "light";
-    applyTheme(savedTheme);
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopSlideshow();
+        else startSlideshow();
+    });
+
+    window.addEventListener("beforeunload", stopSlideshow);
 
     document.addEventListener("themeChanged", (event) => {
-        console.log(`Theme changed detected in home-page.js: ${event.detail}`);
-        showNextSlide(true); 
+        console.log(`Theme changed detected: ${event.detail}`);
+        startSlideshow(); // إعادة تشغيل السلايد عند تغيير الثيم
     });
 });
