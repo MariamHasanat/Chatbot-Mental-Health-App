@@ -7,20 +7,15 @@ const themeIcons = {
 };
 
 function applyTheme(themeName) {
-    console.log(`Applying theme: ${themeName}`); // 🔍 Debugging log
+    console.log(`Applying theme: ${themeName}`);
     document.documentElement.setAttribute("data-theme", themeName);
     localStorage.setItem("theme", themeName);
     updateThemeIcon(themeName);
     updateImages(themeName);
-    console.log(`Theme set in localStorage: ${localStorage.getItem("theme")}`); // 🔍 Debugging log
-}
 
-// function applyTheme(themeName) {
-//     document.documentElement.setAttribute("data-theme", themeName);
-//     localStorage.setItem("theme", themeName);
-//     updateImages(themeName);
-//     // setTimeout(showNextSlide, 100); // تحديث سريع عند تغيير الثيم
-// }
+    // ✅ إرسال حدث عند تغيير الثيم ليتم التقاطه في `home-page.js`
+    document.dispatchEvent(new CustomEvent("themeChanged", { detail: themeName }));
+}
 
 function updateThemeIcon(theme) {
     const icon = document.getElementById("theme-icon");

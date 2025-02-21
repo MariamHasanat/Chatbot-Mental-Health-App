@@ -97,4 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let savedTheme = localStorage.getItem("theme") || "light";
     applyTheme(savedTheme);
+
+    document.addEventListener("themeChanged", (event) => {
+        console.log(`Theme changed detected in home-page.js: ${event.detail}`);
+        showNextSlide(true); // ✅ إجبار تحديث السلايدات فورًا
+    });
 });
