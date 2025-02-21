@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let index = 0;
     let intervalId;
 
-    if (!document.querySelector(".slide")) return; // تأكد أن الكود يعمل فقط بصفحة السلايدر
+    if (!document.querySelector(".slide")) return; 
 
     function updateMode() {
         return document.documentElement.getAttribute("data-theme") === "dark";
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startSlideshow() {
-        if (intervalId) clearInterval(intervalId); // حذف أي Interval قديم
+        if (intervalId) clearInterval(intervalId); 
         showNextSlide();
         intervalId = setInterval(showNextSlide, 5000);
     }
@@ -73,6 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("themeChanged", (event) => {
         console.log(`Theme changed detected: ${event.detail}`);
-        startSlideshow(); // إعادة تشغيل السلايد عند تغيير الثيم
+        startSlideshow(); 
     });
 });
