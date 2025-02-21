@@ -55,6 +55,7 @@ function updateImages(theme) {
             string1: "/assets/image1.svg",
             string2: "/assets/image2.svg",
             string3: "/assets/image3.svg",
+            loginLogo: "./assets/chat-bot-login.svg",
 
         },
         dark: {
@@ -66,6 +67,7 @@ function updateImages(theme) {
             string1: "/assets/image1-dark.svg",
             string2: "/assets/image2-dark.svg",
             string3: "/assets/image3-dark.svg",
+            loginLogo: "./assets/logo-dark-theme.svg",
         }
     };
 
