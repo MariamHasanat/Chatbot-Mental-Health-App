@@ -8,6 +8,10 @@ module.exports = {
     entry: {
         index: './src/frontend/index.js',
         login: './src/frontend/login.js',
+        chat: './src/frontend/chat.js',
+        emergency: './src/frontend/emergency.js',
+        articles: './src/frontend/articles.js',
+        settings: './src/frontend/settings.js',
         signup: './src/frontend/signup.js',
         homePage: './src/frontend/home-page.js',
     },

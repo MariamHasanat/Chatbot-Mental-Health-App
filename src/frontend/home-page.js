@@ -1,23 +1,3 @@
-import './styles/home-page.scss';
-import './assets/articles-dark.svg';
-import './assets/articles.svg';
-import './assets/chat.svg';
-import './assets/chat-dark.svg';
-import './assets/emergency.svg';
-import './assets/emergency-dark.svg';
-import './assets/settings.svg';
-import './assets/settings-dark.svg';
-import './assets/logo.svg';
-import './assets/logo-dark.svg';
-import './styles/styles.scss';
-import './assets/image1-dark.svg';
-import './assets/image1.svg';
-import './assets/image2-dark.svg';
-import './assets/image2.svg';
-import './assets/image3-dark.svg';
-import './assets/image3.svg';
-
-
 document.addEventListener("DOMContentLoaded", () => {
     let slides = document.querySelectorAll(".slide");
     let index = 0;
