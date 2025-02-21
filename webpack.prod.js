@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: {
@@ -84,6 +85,7 @@ module.exports = {
                 { from: "./src/frontend/assets/", to: "assets/" },
             ],
         }),
+        new Dotenv(),
     ],
     devServer: {
         static: {
