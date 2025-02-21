@@ -19,3 +19,4 @@ import './assets/image2.svg';
 import './assets/image3-dark.svg';
 import './assets/image3.svg';
 import './assets/chat-bot-bro-1.svg';
+import './assets/logo-dark-theme.svg';
