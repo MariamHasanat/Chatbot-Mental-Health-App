@@ -13,7 +13,7 @@ import './styles/styles.scss';
 import './assets/image1-dark.svg';
 import './assets/image1.svg';
 import './assets/image2-dark.svg';
-import './assets/image2.svg';   
+import './assets/image2.svg';
 import './assets/image3-dark.svg';
 import './assets/image3.svg';
 
@@ -26,25 +26,39 @@ document.addEventListener("DOMContentLoaded", () => {
         return document.documentElement.getAttribute("data-theme") === "dark";
     }
 
-    function showNextSlide() {
-        let isDarkMode = updateMode();
-        let modeSuffix = isDarkMode ? "-dark" : ""; // يضيف "-dark" عند الحاجة
-    
-        slides.forEach(slide => slide.classList.remove("active"));
-        
-        let currentSlide = slides[index];
-        currentSlide.classList.add("active");
-    
-        // ✅ تحديث الصورة بناءً على الثيم، بدون تغيير الـ active
-        let img = currentSlide.querySelector("img");
-        if (img) {
-            let baseSrc = img.dataset.baseSrc; // خذ الـ src الأصلي المخزن
+    function updateImageSrc(img, modeSuffix) {
+        const baseSrc = img.dataset.baseSrc; // أخذ الـ src الأصلي المخزن
+        if (baseSrc) {
             img.src = baseSrc.replace(".svg", `${modeSuffix}.svg`);
         }
-    
-        index = (index + 1) % slides.length;
     }
-    
+
+    function showNextSlide() {
+        const isDarkMode = updateMode();
+        const modeSuffix = isDarkMode ? "-dark" : "";
+
+        // تحقق مما إذا كانت الشرائح موجودة
+        if (slides && slides.length > 0) {
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            if (index >= 0 && index < slides.length) {
+                const currentSlide = slides[index];
+                currentSlide.classList.add("active");
+
+                const img = currentSlide.querySelector("img");
+                if (img) {
+                    updateImageSrc(img, modeSuffix); // استدعاء الدالة هنا
+                }
+            } else {
+                console.error("Index out of bounds:", index);
+            }
+
+            index = (index + 1) % slides.length; // تحديث الفهرس
+        } else {
+            console.error("No slides found.");
+        }
+    }
+
 
     function updateImages(theme) {
         const images = {
