@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const userData = JSON.parse(localStorage.getItem("userName"));
+
+    if (!userData && ((window.location.pathname === "/home-page.html") || (window.location.pathname === "/chat.html") || (window.location.pathname === "/settings.html") || (window.location.pathname === "/articles.html") || (window.location.pathname === "/emergency.html"))) {
+        window.location.href = "login.html";
+    }
+
     let slides = document.querySelectorAll(".slide");
     let index = 0;
     let intervalId;
    
-    const userData = JSON.parse(localStorage.getItem("userName"));
-
     if (userData) {
         const heading = document.querySelector(".user-name");
         if (heading) {
