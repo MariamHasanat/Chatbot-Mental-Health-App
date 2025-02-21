@@ -57,6 +57,22 @@ module.exports = {
             template: "./src/frontend/views/home-page.html",
             filename: "./home-page.html",
         }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/articles.html",
+            filename: "./articles.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/chat.html",
+            filename: "./chat.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/emergency.html",
+            filename: "./emergency.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/settings.html",
+            filename: "./settings.html",
+        }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
