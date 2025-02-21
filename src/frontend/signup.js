@@ -4,13 +4,10 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
     const db = getFirestore(app);
-
     const form = document.getElementById("signup-form");
-    
+
     if (form) {
-        // Form submission handler
         form.addEventListener("submit", async (e) => {
             e.preventDefault(); // Prevent page reload
 
@@ -31,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                // Add user info to Firestore
-                const userRef = doc(db, "users", email); // Use email as a unique document ID
+                const userRef = doc(db, "users", email);
                 await setDoc(userRef, {
                     name,
                     email,

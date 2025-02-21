@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const db = getFirestore(app);
 
-    const form = document.querySelector("form");
+    const form = document.querySelector("#login-form");
     if (form) {
 
         // Form submission handler
