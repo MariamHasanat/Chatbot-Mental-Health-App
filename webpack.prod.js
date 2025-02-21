@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
@@ -31,11 +30,11 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader, // ✅ Extracts CSS to a separate file
+                    "style-loader",  // يستبدل MiniCssExtractPlugin.loader
                     "css-loader",
-                    "sass-loader",
+                    "sass-loader"
                 ],
-            },         
+            },      
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
@@ -46,9 +45,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-             filename: "styles/[name].[contenthash].css",
-        }),
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/index.html",
             filename: "./index.html",

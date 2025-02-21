@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function addMessage(sender, text) {
+        
         if (!text.trim()) return;
         if (placeholder) placeholder.style.display = "none";
 
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function sendMessage() {
-        const message = chatInput.value.trim();
+        const message = chatInput.value;
         if (!message) return;
 
 
@@ -51,18 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
              method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "ngrok-skip-browser-warning": "true"
                 },
-                credentials: "include",
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ message: message }), // تحويل البيانات إلى JSON
             });
 
-            console.log("📥 Response received:", response);
-
             if (!response.ok) {
-                console.error("❌ HTTP Error! Status:", response.status);
-                const errorText = await response.text(); 
-                console.error("📜 Response Body:", errorText); 
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
