@@ -14,7 +14,10 @@ module.exports = {
     },
     mode: 'production',
     output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "[name].[contenthash].js",
         publicPath: "/",
+        clean: true,
         libraryTarget: 'var',
         library: 'Client'
     },
@@ -28,26 +31,23 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+                    MiniCssExtractPlugin.loader, // ✅ Extracts CSS to a separate file
                     "css-loader",
                     "sass-loader",
                 ],
-            },            
+            },         
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name][ext]',
+                    filename: "assets/[name][contenthash][ext]", 
                 },
-            }, {
-                test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            }
+            },
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "styles/[name].css",
+             filename: "styles/[name].[contenthash].css",
         }),
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/index.html",
@@ -91,6 +91,8 @@ module.exports = {
             directory: path.join(__dirname, "dist"),
         },
         port: 6060,
-        allowedHosts: 'all'
+        allowedHosts: "all",
+        historyApiFallback: true,
     }
 }
+console.log("✅ Webpack config loaded successfully!");

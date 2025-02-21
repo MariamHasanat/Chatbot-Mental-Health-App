@@ -22,7 +22,7 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'source-map',
-    stats: 'verbose',
+    stats: "minimal",
     module: {
         rules: [
             {
@@ -33,7 +33,7 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    process.env.NODE_ENV === "production" ? MiniCssExtractPlugin.loader : "style-loader",
+                    "style-loader",
                     "css-loader",
                     "sass-loader",
                 ],
@@ -100,5 +100,6 @@ module.exports = {
         port: 6060,
         allowedHosts: 'all',
         historyApiFallback: true,
+        hot: true,
     }
 }

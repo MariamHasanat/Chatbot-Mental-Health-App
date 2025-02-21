@@ -14,7 +14,6 @@
             <ul>
                 <li><a href="index.html"><img src="./assets/home.png" alt="Home"> Home</a></li>
                 <li><a href="chat.html"><img src="./assets/chat.png" alt="Chat"> Chat</a></li>
-                <li><a href="settings.html"><img src="./assets/settings.png" alt="Settings"> Settings</a></li>
                 <li><a href="#"><img src="./assets/logout.png" alt="Logout"> Logout</a></li>
             </ul>
         </nav>
@@ -24,11 +23,9 @@
     <div class="settings-container">
         <h1>Customize Your Chatbot</h1>
 
-        <!-- Chatbot Name -->
         <label for="bot-name">Chatbot Name:</label>
         <input type="text" id="bot-name" placeholder="Enter chatbot name">
 
-        <!-- Chatbot Gender -->
         <label>Chatbot Gender:</label>
         <div class="gender-options">
             <input type="radio" name="bot-gender" value="male" id="male">
@@ -38,7 +35,6 @@
             <label for="female">Female</label>
         </div>
 
-        <!-- Chatbot Avatar -->
         <label>Choose Avatar:</label>
         <div class="avatar-options">
             <img src="./assets/bot-male.png" alt="Male Avatar" class="avatar-choice" data-avatar="bot-male.png">
@@ -52,6 +48,16 @@
     </div>
 
     <script src="./js/settings.js"></script>
+
+    <script>
+        function updateSidebar() {
+            let chatbotName = localStorage.getItem("botName") || "Seren";
+            document.getElementById("chatbot-name").textContent = chatbotName;
+        }
+
+        document.addEventListener("DOMContentLoaded", updateSidebar);
+    </script>
+
 
 </body>
 </html>
