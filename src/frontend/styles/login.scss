@@ -81,19 +81,20 @@ label {
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    box-sizing: border-box;
     margin: 10px 0;
     padding-left: 25px;
     border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    font-size: 18px;
+    border-radius: 48px;
+    font-size: 16px;
 }
 
 .login-btn {
     width: 100%;
     padding: 15px;
-    background-color: #A3D9A5;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--text-color);
     border: none;
     border-radius: 48px;
     cursor: pointer;
@@ -103,7 +104,8 @@ input {
 }
 
 .login-btn:hover {
-    background-color: #0b6e12;
+    background-color: var(--button-hover);
+    color: var(--text-hover);
 }
 
 .bottom-text {
@@ -136,8 +138,9 @@ input {
 
 .show-password-container input[type="checkbox"] {
     appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
     border: 2px solid #E0E0E0;
     border-radius: 3px;
     cursor: pointer;
@@ -185,7 +188,7 @@ body.dark-theme .container-login {
 }
 
 body.dark-theme .theme-toggle {
-    color: var( --text-color);
+    color: var(--text-color);
 }
 
 body.dark-theme h1,
@@ -229,9 +232,4 @@ body.dark-theme .welcome-text h1 {
 body.dark-theme .welcome-text p {
     color: var(--text-sec-color);
 
-}
-
-input[type="email"],
-input[type="password"] {
-    border-radius: 48px;
 }
