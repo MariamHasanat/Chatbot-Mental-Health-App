@@ -8,6 +8,10 @@ module.exports = {
     entry: {
         index: './src/frontend/index.js',
         login: './src/frontend/login.js',
+        chat: './src/frontend/chat.js',
+        emergency: './src/frontend/emergency.js',
+        articles: './src/frontend/articles.js',
+        settings: './src/frontend/settings.js',
         signup: './src/frontend/signup.js',
         homePage: './src/frontend/home-page.js',
     },
@@ -52,6 +56,22 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/home-page.html",
             filename: "./home-page.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/articles.html",
+            filename: "./articles.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/chat.html",
+            filename: "./chat.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/emergency.html",
+            filename: "./emergency.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/settings.html",
+            filename: "./settings.html",
         }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
