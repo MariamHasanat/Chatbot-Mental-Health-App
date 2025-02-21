@@ -2,8 +2,34 @@ document.addEventListener("DOMContentLoaded", () => {
     let slides = document.querySelectorAll(".slide");
     let index = 0;
     let intervalId;
+   
+    const userData = JSON.parse(localStorage.getItem("userName"));
 
-    if (!document.querySelector(".slide")) return; 
+    if (userData) {
+        const heading = document.querySelector(".user-name");
+        if (heading) {
+            heading.innerHTML = userData.name;
+        } else {
+            console.error("Element with class 'user-name' not found in the DOM.");
+        }
+    } else {
+        console.error("No user data found in localStorage.");
+    }
+
+    const logoutBtn = document.querySelector(".icon[href='./login.html']");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // منع الانتقال التلقائي
+
+            localStorage.removeItem("userName"); // حذف بيانات المستخدم فقط
+            window.location.href = "login.html"; // إعادة التوجيه لصفحة تسجيل الدخول
+        });
+    } else {
+        console.error("Logout button not found in the DOM.");
+    }
+
+    if (!document.querySelector(".slide")) return;
 
     function updateMode() {
         return document.documentElement.getAttribute("data-theme") === "dark";
@@ -42,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startSlideshow() {
-        if (intervalId) clearInterval(intervalId); 
+        if (intervalId) clearInterval(intervalId);
         showNextSlide();
         intervalId = setInterval(showNextSlide, 5000);
     }
@@ -73,6 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("themeChanged", (event) => {
         console.log(`Theme changed detected: ${event.detail}`);
-        startSlideshow(); 
+        startSlideshow();
     });
 });
