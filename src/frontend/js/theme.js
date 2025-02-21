@@ -13,7 +13,6 @@ function applyTheme(themeName) {
     updateThemeIcon(themeName);
     updateImages(themeName);
 
-    // ✅ إرسال حدث عند تغيير الثيم ليتم التقاطه في `home-page.js`
     document.dispatchEvent(new CustomEvent("themeChanged", { detail: themeName }));
 }
 

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateImageSrc(img, modeSuffix) {
-        const baseSrc = img.dataset.baseSrc; // أخذ الـ src الأصلي المخزن
+        const baseSrc = img.dataset.baseSrc;
         if (baseSrc) {
             img.src = baseSrc.replace(".svg", `${modeSuffix}.svg`);
         }
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isDarkMode = updateMode();
         const modeSuffix = isDarkMode ? "-dark" : "";
 
-        // تحقق مما إذا كانت الشرائح موجودة
+      
         if (slides && slides.length > 0) {
             slides.forEach(slide => slide.classList.remove("active"));
 
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const img = currentSlide.querySelector("img");
                 if (img) {
-                    updateImageSrc(img, modeSuffix); // استدعاء الدالة هنا
+                    updateImageSrc(img, modeSuffix); 
                 }
             } else {
                 console.error("Index out of bounds:", index);
             }
 
-            index = (index + 1) % slides.length; // تحديث الفهرس
+            index = (index + 1) % slides.length; 
         } else {
             console.error("No slides found.");
         }
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", themeName);
         localStorage.setItem("theme", themeName);
         updateImages(themeName);
-        setTimeout(showNextSlide, 10); // تحديث سريع عند تغيير الثيم
+        setTimeout(showNextSlide, 10);
     }
 
     setInterval(showNextSlide, 5000);
@@ -94,6 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("themeChanged", (event) => {
         console.log(`Theme changed detected in home-page.js: ${event.detail}`);
-        showNextSlide(true); // ✅ إجبار تحديث السلايدات فورًا
+        showNextSlide(true); 
     });
 });
