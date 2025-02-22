@@ -15,6 +15,8 @@ module.exports = {
         homePage: './src/frontend/home-page.js',
         settings: './src/frontend/settings.js',
         chat: './src/frontend/chat.js',
+        article: './src/frontend/articles.js',
+        emergency: './src/frontend/emergency.js',
     },
     output: {
         publicPath: "/",

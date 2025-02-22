@@ -26,3 +26,4 @@ import './assets/logout-dark.svg';
 import './styles/login.scss';
 import './assets/home-light.svg';
 import './assets/home-dark.svg';
+import './styles/article.scss';

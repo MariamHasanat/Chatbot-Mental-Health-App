@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles</title>
+    <title>Articles - Mental Health</title>
+    <link rel="stylesheet" href="styles/articles.css">
 </head>
 <body>
-    
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="home-page.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/home-light.svg" data-dark="assets/home-dark.svg" data-light="assets/home-light.svg" alt="Chat">
+                        </div>
+                        <span class="sidebar-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/chat.svg" data-dark="assets/chat-dark.svg" data-light="assets/chat.svg" alt="Chat">
+                        </div>
+                        <span class="sidebar-text">Chat with Seren</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="emergency.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/emergency.svg" data-dark="assets/emergency-dark.svg" data-light="assets/emergency.svg" alt="Emergency">
+                        </div>
+                        <span class="sidebar-text">Emergency Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/settings.svg" data-dark="assets/settings-dark.svg" data-light="assets/settings.svg" alt="Settings">
+                        </div>
+                        <span class="sidebar-text">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="logout" href="./login.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/logout-light.svg" data-dark="assets/logout-dark.svg" data-light="assets/logout-light.svg" alt="logout">
+                        </div>
+                        <span class="sidebar-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main class="articles-container">
+        <h1 class="title">Mental Health Articles</h1>
+        <div class="articles-list">
+            <article class="article">
+                <img src="assets/Frame 55 (1).png" alt="">
+                <h2>Understanding Anxiety</h2>
+                <p>Anxiety affects millions of people. Learn how to manage and overcome it.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="article">
+                <img src="assets/Frame 54.png" alt="">
+                <h2>Mindfulness for Beginners</h2>
+                <p>Discover how mindfulness can improve mental clarity and reduce stress.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article class="article">
+                <img src="/assets/Frame 54 (1).png" alt="">
+                <h2>Dealing with Stress</h2>
+                <p>Effective techniques to help you cope with daily stressors.</p>
+                <a href="#">Read More</a>
+            </article>
+        </div>
+    </main>
+    <script src="scripts/articles.js"></script>
 </body>
 </html>

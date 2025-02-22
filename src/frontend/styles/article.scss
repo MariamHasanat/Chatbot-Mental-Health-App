@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    display: flex;                   /* استخدام فليكس لتوزيع العناصر */
+    margin: 0;                      /* إزالة المارجن الافتراضي */
+    font-family: 'Poppins', sans-serif; /* استخدام خط Poppins */
+}
+
+.sidebar {
+    width: 250px;                   /* عرض ثابت للسيد بار */
+    background-color: #f8f8f8;      /* لون خلفية للسيد بار */
+    padding: 20px;                  /* مساحة داخلية */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* ظل للسيد بار */
+}
+
+.articles-container {
+    flex-grow: 1;                   /* النمو لاحتلال المساحة المتاحة */
+    padding: 20px;                  /* مساحة داخلية */
+    margin-left: 20px;              /* مارجن لترك مسافة بين السيد بار والمحتوى */
+}
+
+.articles-list {
+    display: grid;                  /* استخدام شبكة للمقالات */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* توزيع الأعمدة بشكل مرن */
+    gap: 20px;                      /* الفجوة بين العناصر */
+}
+
+.article {
+    display: flex;                  /* استخدام فليكس داخل المقالة */
+    flex-direction: column;         /* الاتجاه العمودي */
+    justify-content: center;        /* محاذاة المحتوى في الوسط */
+    background: var(--button-bg);   /* لون خلفية */
+    padding: 15px;                  /* مساحة داخلية */
+    border-radius: 8px;            /* زوايا دائرية */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* ظل */
+}
+
+.article h2 {
+    color: var(--title-color);      /* لون العنوان */
+}
+
+.article a {
+    color: var(--text-hover);       /* لون النص */
+    background: var(--button-hover); /* لون الخلفية عند التمرير */
+    padding: 5px 10px;              /* مساحة داخلية */
+    text-decoration: none;           /* إزالة التزيين */
+    border-radius: 5px;             /* زوايا دائرية */
+    display: inline-block;           /* عرض ككتلة */
+    margin-top: 10px;               /* مسافة فوق الرابط */
+}
+
+.article a:hover {
+    background: var(--button-bg);   /* تغيير لون الخلفية عند التمرير */
+}

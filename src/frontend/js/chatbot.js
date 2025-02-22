@@ -1,5 +1,4 @@
-const API_URL = "https://e54b-34-143-200-250.ngrok-free.app/chat";
-
+const API_URL = "http://localhost:5000/chat";
 
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
@@ -40,16 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
     async function sendMessage() {
         const message = chatInput.value;
         if (!message) return;
-
+    
         try {
             console.log("📤 Sending message:", message);
-
+    
             chatInput.disabled = true;
             sendBtn.disabled = true;
             addMessage("user", message);
             chatInput.value = ""; 
-
-            // API Request
+    
+            // إرسال الطلب إلى الباك-إند المحلي الذي يعمل كوسيط
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: {
@@ -57,15 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 body: JSON.stringify({ message: message }), 
             });
-
+    
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
+    
             const data = await response.json();
-            addMessage("bot", botResponse.response || "⚠️ No response received.");
-
-
+            const res = data.reply;
+            console.log("📥 Received response:", res.response);
+            await addMessage("bot", res.response);
+    
         } catch (error) {
             addMessage("bot", "⚠️ Sorry, something went wrong. Please try again.");
         } finally {

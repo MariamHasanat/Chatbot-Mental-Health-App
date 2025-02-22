@@ -12,7 +12,7 @@ $user-border-color: #8DBBA8;
 $button-color: #FF8800;
 $message-padding: 10px 16px;
 $message-font-size: 14px;
-$message-border-radius: 14px;
+$message-border-radius: 96px;
 $input-height: 50px;
 
 
@@ -132,12 +132,16 @@ $input-height: 50px;
 
 .bot-message, .user-message {
     max-width: 55%;
+    min-width: 10%;
     padding: $message-padding;
+    padding-left: 40px;
+    padding-right: 40px;
     margin: 8px 12px;
     border-radius: $message-border-radius;
     font-size: $message-font-size;
     font-weight: 500;
     line-height: 1.4;
+    text-align: center;
 }
 
 .bot-message {
