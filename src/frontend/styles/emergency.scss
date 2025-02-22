@@ -1,0 +1,180 @@
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$primary: #4A90E2;
+$button-color: #FF8800;
+$background-light: #F7F7F7;
+$background-dark: #181818;
+$text-light: #333;
+$text-dark: #fff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    background: $background-light;
+    color: $text-light;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+}
+
+/* Enable Scrolling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Sidebar - Always Open */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background: white;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav li {
+    margin: 15px 0;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: $text-light;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.emergency-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-left: 270px; 
+}
+
+.emergency-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.emergency-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.doctor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.doctor-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out forwards;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.specialty {
+    font-size: 17px;
+    font-weight: bold;
+    color: $primary;
+    margin-bottom: 5px;
+}
+
+.experience {
+    font-size: 15px;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Contact Button */
+.contact-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background: $button-color;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: color.adjust($button-color, $lightness: -10%);
+        box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Dark Mode */
+[data-theme="dark"] body {
+    background: $background-dark;
+    color: $text-dark;
+}
+
+[data-theme="dark"] .doctor-card {
+    background: #252525;
+    color: $text-dark;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Fix */
+@media (max-width: 1024px) {
+    .emergency-container {
+        margin-left: 0;
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+}
