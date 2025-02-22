@@ -1,12 +1,24 @@
-import { startConversation } from './js/scripts.js';
 import './styles/chatbot.scss'; 
 import './styles/styles.scss';
-import './styles/settings.scss';
+import './styles/home-page.scss';
+import './assets/articles-dark.svg';
+import './assets/articles.svg';
+import './assets/chat.svg';
+import './assets/chat-dark.svg';
+import './assets/emergency.svg';
+import './assets/emergency-dark.svg';
+import './assets/settings.svg';
+import './assets/settings-dark.svg';
+import './assets/logo.svg';
+import './assets/logo-dark.svg';
+import './styles/styles.scss';
+import './assets/image1-dark.svg';
+import './assets/image1.svg';
+import './assets/image2-dark.svg';
+import './assets/image2.svg';
+import './assets/image3-dark.svg';
+import './assets/image3.svg';
 import './assets/chat-bot-bro-1.svg';
-
-window.Client = window.Client || {}; 
-window.Client.startConversation = startConversation; 
-
-console.log("Client is now available globally:", window.Client);
-
-export { startConversation };
+import './assets/logo-dark-theme.svg';
+import './assets/logout.svg';
+import './assets/logout-dark.svg';

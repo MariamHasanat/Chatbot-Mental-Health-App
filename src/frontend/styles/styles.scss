@@ -8,9 +8,11 @@
     --bg-color: #F7F7F7;
     --title-color: #1B4332;
     --text-color: #333333;
+    --text-sec-color: #666666;
     --button-bg: #B8E2C8;
     --button-hover: #77ae7a;
     --theme-button-bg: #B8E2C8; 
+    --text-hover: #ffffff;
 }
 
 /* Dark Mode */
@@ -18,9 +20,11 @@
     --bg-color: #181818;
     --title-color: #A3B18A;
     --text-color: #E0E0E0;
+    --text-sec-color: #BDBDBD;
     --button-bg: #66BB6A;
     --button-hover: #55A062;
     --theme-button-bg: #66BB6A;
+    --text-hover: #ffffff;
 }
 
 [data-theme="custom"] {

@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
 </head>
-<body>
-    <div id="header-container"></div>
-    home page
 
+<body id="home-page">
+    <header id="header-home">
+        <div class="logo">
+            <img src="../assets/logo.svg" data-icon="logo" class="light-mode">
+        </div>
+        <div class="greeting">
+            <h1 id="greeting">Hello, <span class="user-name"></span> 👋</h1>
+            <h2 id="feeling-text">How are you feeling today? 💙</h2>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="slide active">
+            <img data-base-src="/assets/image1.svg" src="/assets/image1.svg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img data-base-src="/assets/image2.svg" src="/assets/image2.svg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img data-base-src="/assets/image3.svg" src="/assets/image3.svg" alt="Slide 3">
+        </div>
+    </div>
+
+    <div class="icons-section">
+        <a class="icon" href='chat.html'>
+            <img src="../assets/chat.svg" data-icon="chat" class="light-mode" alt="Chat">
+            <span>Chat</span>
+        </a>
+        <a class="icon" href='articles.html'>
+            <img src="../assets/articles.svg" data-icon="articles" class="light-mode" alt="Articles">
+            <span>Articles</span>
+        </a>
+        <a class="icon" href='emergency.html'>
+            <img src="../assets/emergency.svg" data-icon="emergency" class="light-mode" alt="Emergency Info">
+            <span>Emergency</span>
+        </a>
+        <a class="icon" href='./settings.html'>
+            <img src="../assets/settings.svg" data-icon="settings" class="light-mode" alt="Settings">
+            <span>Settings</span>
+        </a>
+        <a class="icon" href='./login.html'>
+            <img src="../assets/logout.svg" data-icon="logout" class="light-mode" alt="Logout">
+            <span>Log out</span>
+        </a>
+    </div>
+    <div id="header-container"></div>
     <script>
         fetch("/header.html")
             .then(response => response.text())
@@ -22,4 +66,5 @@
             });
     </script>
 </body>
+
 </html>

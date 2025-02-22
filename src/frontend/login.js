@@ -1,25 +1,60 @@
-import './styles/login.scss';
-import './styles/styles.scss';
-import './assets/chat-bot-bro-1.svg';
+import app from "./js/firebase.js";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 
-const passwordInput = document.getElementById('password');
-const showPasswordCheckbox = document.getElementById('showPassword');
-const themeToggle = document.getElementById('themeToggle');
+document.addEventListener("DOMContentLoaded", () => {
 
-showPasswordCheckbox.addEventListener('change', () => {
-    passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
-});
+    const db = getFirestore(app);
 
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-theme');
-}
+    const form = document.querySelector("#login-form");
+    if (form) {
 
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    if (document.body.classList.contains('dark-theme')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
+        // Form submission handler
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent page reload
+
+            // Collect user input
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            // Validate input
+            if (!email || !password) {
+                alert("Both fields are required.");
+                return;
+            }
+
+            try {
+                // Retrieve user data from Firestore
+                const userRef = doc(db, "users", email);
+                const userSnap = await getDoc(userRef);
+
+                if (!userSnap.exists()) {
+                    alert("User not found. Please check your email.");
+                    return;
+                }
+
+                const userData = userSnap.data();
+
+                // Check if password matches (You should use Firebase Auth for real apps)
+                if (password === userData.password) {
+                    alert("Login successful!");
+                    localStorage.setItem('userName', JSON.stringify(userData));
+                    window.location.href = "home-page.html"; // Redirect to home page
+                } else {
+                    alert("Incorrect password. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error retrieving document: ", error);
+                alert("Failed to login. Please try again.");
+            }
+        });
+    }
+    const passwordInput = document.getElementById('password');
+    const showPasswordCheckbox = document.getElementById('showPassword');
+
+    if (showPasswordCheckbox && passwordInput) {
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
     }
 });
