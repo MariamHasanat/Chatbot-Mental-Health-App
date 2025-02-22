@@ -70,7 +70,7 @@ function updateImages(theme) {
             string2: "/assets/image2.svg",
             string3: "/assets/image3.svg",
             loginLogo: "./assets/chat-bot-login.svg",
-            logout: "/assets/logout.svg",
+            logout: "/assets/logout-light.svg",
 
         },
         dark: {
