@@ -1,5 +1,6 @@
 import './styles/chatbot.scss'; 
 import './styles/styles.scss';
+import './styles/emergency.scss';
 import './styles/home-page.scss';
 import './assets/articles-dark.svg';
 import './assets/articles.svg';
