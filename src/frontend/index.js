@@ -23,3 +23,5 @@ import './assets/logo-dark-theme.svg';
 import './assets/logout-light.svg';
 import './assets/logout-dark.svg';
 import './styles/login.scss';
+import './assets/home-light.svg';
+import './assets/home-dark.svg';
