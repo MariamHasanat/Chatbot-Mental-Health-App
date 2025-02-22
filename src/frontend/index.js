@@ -22,3 +22,4 @@ import './assets/chat-bot-bro-1.svg';
 import './assets/logo-dark-theme.svg';
 import './assets/logout.svg';
 import './assets/logout-dark.svg';
+import './styles/login.scss';
