@@ -9,20 +9,31 @@
 </head>
 <body>
 
-    <button class="sidebar-toggle" id="sidebar-toggle">
+    <button class="sidebar-toggle" id="sidebar-toggle-id">
         <img src="assets/sidebar-right.png" alt="Toggle Sidebar">
     </button>
+
+    <header class="chat-header">
 
         <button id="theme-toggle">
             <img id="theme-icon" src="assets/light-mode-icon.png" alt="Toggle Theme">
         </button>
+    </header>
 
-
-    <div class="sidebar active" id="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
         <nav>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="home-page.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/home-light.svg" data-dark="assets/home-dark.svg" data-light="assets/home-light.svg" alt="Chat">
+                        </div>
+                        <span class="sidebar-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
                         <div class="sidebar-icon">
                             <img class="theme-icon" src="assets/chat.svg" data-dark="assets/chat-dark.svg" data-light="assets/chat.svg" alt="Chat">
                         </div>
@@ -30,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="articles.html">
                         <div class="sidebar-icon">
                             <img class="theme-icon" src="assets/articles.svg" data-dark="assets/articles-dark.svg" data-light="assets/articles.svg" alt="Articles">
                         </div>
@@ -38,7 +49,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="emergency.html">
                         <div class="sidebar-icon">
                             <img class="theme-icon" src="assets/emergency.svg" data-dark="assets/emergency-dark.svg" data-light="assets/emergency.svg" alt="Emergency">
                         </div>
@@ -46,17 +57,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class="logout" href="./login.html">
                         <div class="sidebar-icon">
-                            <img class="theme-icon" src="assets/settings.svg" data-dark="assets/settings-dark.svg" data-light="assets/settings.svg" alt="Settings">
-                        </div>
-                        <span class="sidebar-text">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="sidebar-icon">
-                            <img class="theme-icon" src="assets/logout-light.svg" data-dark="assets/logout.svg" data-light="assets/logout-light.svg" alt="logout">
+                            <img class="theme-icon" src="assets/logout-light.svg" data-dark="assets/logout-dark.svg" data-light="assets/logout-light.svg" alt="logout">
                         </div>
                         <span class="sidebar-text">Logout</span>
                     </a>
@@ -107,10 +110,9 @@
     </div>
 
 
-    <script src="js/theme.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="js/settings.js"></script>
-
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/sidebar.js"></script>
+    <script defer src="js/settings.js"></script>
 
 
 </body>

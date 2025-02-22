@@ -13,6 +13,8 @@ module.exports = {
         login: './src/frontend/login.js',
         signup: './src/frontend/signup.js',
         homePage: './src/frontend/home-page.js',
+        settings: './src/frontend/settings.js',
+        chat: './src/frontend/chat.js',
     },
     output: {
         publicPath: "/",
