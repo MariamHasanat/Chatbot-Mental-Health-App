@@ -56,6 +56,7 @@ function updateImages(theme) {
             string2: "/assets/image2.svg",
             string3: "/assets/image3.svg",
             loginLogo: "./assets/chat-bot-login.svg",
+            logout: "/assets/logout.svg",
 
         },
         dark: {
@@ -68,6 +69,7 @@ function updateImages(theme) {
             string2: "/assets/image2-dark.svg",
             string3: "/assets/image3-dark.svg",
             loginLogo: "./assets/logo-dark-theme.svg",
+            logout: "/assets/logout-dark.svg",
         }
     };
 

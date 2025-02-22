@@ -20,3 +20,5 @@ import './assets/image3-dark.svg';
 import './assets/image3.svg';
 import './assets/chat-bot-bro-1.svg';
 import './assets/logo-dark-theme.svg';
+import './assets/logout.svg';
+import './assets/logout-dark.svg';
