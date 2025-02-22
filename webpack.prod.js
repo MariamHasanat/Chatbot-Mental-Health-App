@@ -39,12 +39,12 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ],
-            },      
+            },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: "assets/[name][contenthash][ext]", 
+                    filename: "assets/[name][contenthash][ext]",
                 },
             },
         ]
@@ -86,20 +86,20 @@ module.exports = {
             clientsClaim: true,
             skipWaiting: true,
         }),
-        new HtmlWebPackPlugin({  
+        new HtmlWebPackPlugin({
             template: "./src/frontend/views/chat.html",
             filename: "chat.html",
         }),
         new HtmlWebPackPlugin({
-            template: "./src/frontend/views/settings.html", 
+            template: "./src/frontend/views/settings.html",
             filename: "settings.html",
         }),
         new CopyPlugin({
             patterns: [
-              { from: "./src/frontend/views/header.html", to: "header.html" }, 
-              { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
-              { from: "./src/frontend/assets/", to: "assets/" },
-              { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
+                { from: "./src/frontend/views/header.html", to: "header.html" },
+                { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
+                { from: "./src/frontend/assets/", to: "assets/" },
+                { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
             ],
         }),
         new Dotenv(),
