@@ -1,3 +1,6 @@
+const API_URL = "https://e54b-34-143-200-250.ngrok-free.app/chat";
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
     const toggleBtn = document.getElementById("sidebar-toggle");
@@ -5,14 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatBox = document.getElementById("chat-box");
     const chatInput = document.getElementById("chat-input");
     const sendBtn = document.getElementById("send-btn");
-    const scrollUpBtn = document.getElementById("scroll-up");
     const placeholder = document.getElementById("chat-placeholder");
 
+    // Toggle Sidebar
     toggleBtn.addEventListener("click", () => {
         sidebar.classList.toggle("active");
         chatContainer.classList.toggle("sidebar-open");
     });
 
+    // Close sidebar when clicking outside
     document.addEventListener("click", (event) => {
         if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
             sidebar.classList.remove("active");
@@ -30,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.innerHTML = `<p>${text}</p>`;
 
         chatBox.appendChild(messageDiv);
-
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
@@ -38,9 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = chatInput.value;
         if (!message) return;
 
-
         try {
-
             console.log("📤 Sending message:", message);
 
             chatInput.disabled = true;
@@ -48,12 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
             addMessage("user", message);
             chatInput.value = ""; 
 
-            const response = await fetch("https://e54b-34-143-200-250.ngrok-free.app/chat", {   
-             method: "POST",
+            // API Request
+            const response = await fetch(API_URL, {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ message: message }), // تحويل البيانات إلى JSON
+                body: JSON.stringify({ message: message }), 
             });
 
             if (!response.ok) {
@@ -61,21 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const data = await response.json();
-            console.log("📦 Parsed JSON response:", data);
+            addMessage("bot", botResponse.response || "⚠️ No response received.");
 
-
-            if (data.response && data.response.trim()) {
-                addMessage("bot", data.response);
-            } else {
-                throw new Error("Empty response from server");
-            }
 
         } catch (error) {
-            console.error("Error fetching chatbot response:", error);
             addMessage("bot", "⚠️ Sorry, something went wrong. Please try again.");
-        }
-        finally {
-
+        } finally {
             chatInput.disabled = false;
             sendBtn.disabled = false;
             chatInput.focus();
