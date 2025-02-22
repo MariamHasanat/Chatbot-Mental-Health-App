@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency</title>
+    <title>Emergency Support</title>
+    <link rel="stylesheet" href="styles/emergency.css">
 </head>
 <body>
-    
+
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <img src="assets/sidebar-right.png" alt="Toggle Sidebar">
+    </button>
+
+    <button id="theme-toggle">
+        <img id="theme-icon" src="assets/light-mode-icon.png" alt="Toggle Theme">
+    </button>
+
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="home-page.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/home-light.svg" data-dark="assets/home-dark.svg" data-light="assets/home-light.svg" alt="Chat">
+                        </div>
+                        <span class="sidebar-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="articles.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/articles.svg" data-dark="assets/articles-dark.svg" data-light="assets/articles.svg" alt="Articles">
+                        </div>
+                        <span class="sidebar-text">Articles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="emergency.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/emergency.svg" data-dark="assets/emergency-dark.svg" data-light="assets/emergency.svg" alt="Emergency">
+                        </div>
+                        <span class="sidebar-text">Emergency Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/settings.svg" data-dark="assets/settings-dark.svg" data-light="assets/settings.svg" alt="Settings">
+                        </div>
+                        <span class="sidebar-text">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="logout" href="./login.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/logout-light.svg" data-dark="assets/logout-dark.svg" data-light="assets/logout-light.svg" alt="logout">
+                        </div>
+                        <span class="sidebar-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- Emergency Section -->
+    <div class="emergency-container">
+        <h2 class="emergency-title">You're Not Alone 💙</h2>
+        <p class="emergency-subtitle">Find a professional to support you. You're stronger than you think! 🌿</p>
+
+        <div class="doctor-cards">
+            <!-- Doctor 1 -->
+            <div class="doctor-card">
+                <h3>Dr. Emma Smith</h3>
+                <p class="specialty">Cognitive Behavioral Therapy</p>
+                <p class="experience">🩺 10+ years</p>
+                <p class="quote">"Healing starts with one small step. You're never alone! 🌿"</p>
+                <a href="mailto:emma.smith@therapy.com" class="contact-btn">Contact Now</a>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="doctor-card">
+                <h3>Dr. Liam Johnson</h3>
+                <p class="specialty">Depression & Anxiety Specialist</p>
+                <p class="experience">🩺 12+ years</p>
+                <p class="quote">"Your feelings are valid. Let's talk and find light together. 💡"</p>
+                <a href="mailto:liam.johnson@mentalcare.com" class="contact-btn">Contact Now</a>
+            </div>
+
+            <!-- Doctor 3 -->
+            <div class="doctor-card">
+                <h3>Dr. Olivia Brown</h3>
+                <p class="specialty">PTSD & Trauma Recovery</p>
+                <p class="experience">🩺 8+ years</p>
+                <p class="quote">"Your past doesn’t define you. Every day is a new chance. 🌈"</p>
+                <a href="mailto:olivia.brown@wellness.com" class="contact-btn">Contact Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/sidebar.js"></script>
+
 </body>
 </html>
