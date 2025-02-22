@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No user data found in localStorage.");
     }
 
-    const logoutBtn = document.querySelector(".icon[href='./login.html']");
+    const logoutBtn = document.querySelector(".logout[href='./login.html']");
 
     if (logoutBtn) {
         logoutBtn.addEventListener("click", (event) => {

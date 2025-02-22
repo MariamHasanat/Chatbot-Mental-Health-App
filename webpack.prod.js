@@ -18,7 +18,10 @@ module.exports = {
     },
     mode: 'production',
     output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "[name].[contenthash].js",
         publicPath: "/",
+        clean: true,
         libraryTarget: 'var',
         library: 'Client'
     },
@@ -30,15 +33,20 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",  // يستبدل MiniCssExtractPlugin.loader
+                    "css-loader",
+                    "sass-loader"
+                ],
+            },      
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/[name][ext]',
+                    filename: "assets/[name][contenthash][ext]", 
                 },
-            }, {
-                test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            }
+            },
         ]
     },
     plugins: [
@@ -78,11 +86,20 @@ module.exports = {
             clientsClaim: true,
             skipWaiting: true,
         }),
+        new HtmlWebPackPlugin({  
+            template: "./src/frontend/views/chat.html",
+            filename: "chat.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/settings.html", 
+            filename: "settings.html",
+        }),
         new CopyPlugin({
             patterns: [
-                { from: "./src/frontend/views/header.html", to: "header.html" },
-                { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
-                { from: "./src/frontend/assets/", to: "assets/" },
+              { from: "./src/frontend/views/header.html", to: "header.html" }, 
+              { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
+              { from: "./src/frontend/assets/", to: "assets/" },
+              { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
             ],
         }),
         new Dotenv(),
@@ -92,6 +109,8 @@ module.exports = {
             directory: path.join(__dirname, "dist"),
         },
         port: 6060,
-        allowedHosts: 'all'
+        allowedHosts: "all",
+        historyApiFallback: true,
     }
 }
+console.log("✅ Webpack config loaded successfully!");

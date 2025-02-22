@@ -3,9 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
+    <title>AI Chat</title>
+    <link rel="stylesheet" type="text/css" href="/styles/chatbot.css">
+
 </head>
 <body>
-    
+
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <img src="assets/sidebar-right.png" alt="Toggle Sidebar">
+    </button>
+
+    <header class="chat-header">
+
+        <button id="theme-toggle">
+            <img id="theme-icon" src="assets/light-mode-icon.png" alt="Toggle Theme">
+        </button>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="home-page.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/home-light.svg" data-dark="assets/home-dark.svg" data-light="assets/home-light.svg" alt="Chat">
+                        </div>
+                        <span class="sidebar-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="articles.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/articles.svg" data-dark="assets/articles-dark.svg" data-light="assets/articles.svg" alt="Articles">
+                        </div>
+                        <span class="sidebar-text">Articles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="emergency.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/emergency.svg" data-dark="assets/emergency-dark.svg" data-light="assets/emergency.svg" alt="Emergency">
+                        </div>
+                        <span class="sidebar-text">Emergency Info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/settings.svg" data-dark="assets/settings-dark.svg" data-light="assets/settings.svg" alt="Settings">
+                        </div>
+                        <span class="sidebar-text">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="logout" href="./login.html">
+                        <div class="sidebar-icon">
+                            <img class="theme-icon" src="assets/logout-light.svg" data-dark="assets/logout-dark.svg" data-light="assets/logout-light.svg" alt="logout">
+                        </div>
+                        <span class="sidebar-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div id="chat-placeholder">
+                <img id="placeholder-img" src="assets/Chat bot-light.png" data-dark="assets/Chat bot-dark.png" data-light="assets/Chat bot-light.png" alt="Chat Placeholder">
+            </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="chat-input-container">
+            <img src="assets/logo.svg" alt="Logo" class="chat-logo">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-btn">
+                <img src="assets/send.png" alt="Send">
+            </button>
+        </div>
+    </div>
+
+    <button class="scroll-up" id="scroll-up">⬆</button>
+
+    <script src="js/chatbot.js"></script>
+    <script src="js/theme.js"></script>
+
 </body>
 </html>

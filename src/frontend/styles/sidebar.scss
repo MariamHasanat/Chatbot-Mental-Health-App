@@ -1,0 +1,145 @@
+@use "sass:color";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$sidebar-width: 250px;
+$bg-color: #F7F7F7;
+$text-color: #333;
+$sidebar-bg: white;
+$icon-size: 55px;
+$toggle-size: 50px; 
+
+
+[data-theme="dark"] {
+    .sidebar {
+        background: #181818; // Dark sidebar background
+    }
+
+    .sidebar a {
+        color: white !important; // Ensures text is white
+    }
+
+    .sidebar a:hover {
+        color: #c9d2cd !important; // Light green hover effect
+    }
+}
+
+
+.sidebar {
+    width: $sidebar-width;
+    background: white;
+    height: 100vh;
+    position: fixed;
+    left: -($sidebar-width + 38px);
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+
+    &.active {
+        left: 0; 
+    }
+
+    nav {
+        margin-top: 60px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: center; 
+            gap: 15px; 
+            padding: 14px 15px; 
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+    
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+    
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #333;
+                font-size: 18px;
+                font-weight: 400;
+                width: 100%;
+            }
+
+            .sidebar-icon {
+                width: 55px; 
+                height: 55px;
+                min-width: 55px;
+                min-height: 55px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                img {
+                    width: 70%;
+                    height: auto;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 15px; 
+    left: 15px; 
+    background: #A7C7E7; 
+    border: none;
+    padding: 5px; 
+    width: $toggle-size;
+    height: $toggle-size;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    z-index: 1001; 
+
+    .sidebar-icon img {
+
+        width: 70%;
+        height: auto;
+        display: block;
+    }
+
+    &:hover {
+        background: color.adjust(#A7C7E7, $lightness: -10%);
+    }
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #A7C7E7;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+
+
+    .sidebar-icon img {
+        width: 30px;
+        height: 30px;
+    }
+}

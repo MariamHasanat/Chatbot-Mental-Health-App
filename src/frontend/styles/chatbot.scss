@@ -1,0 +1,231 @@
+@use 'sidebar';
+@use "sass:color";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@debug "🎨 SCSS is compiling chatbot.scss";
+
+
+$sidebar-width: 250px;
+$bot-msg-color: #4A90E2;
+$bot-border-color: #3A7AC8;
+$user-msg-color: #B8E2C8;
+$user-border-color: #8DBBA8;
+$button-color: #FF8800;
+$message-padding: 10px 16px;
+$message-font-size: 14px;
+$message-border-radius: 14px;
+$input-height: 50px;
+
+
+[data-theme="dark"] {
+    .sidebar {
+        background: #181818;
+    }
+
+    .chat-header {
+        background: #181818;
+    }
+
+    .chat-box {
+        background: #181818;
+    }
+
+    .bot-message {
+        background: $bot-msg-color;
+        color: white;
+        border: 2px solid $bot-border-color;
+    }
+
+    .user-message {
+        background: $user-msg-color;
+        color: #333;
+        border: 2px solid $user-border-color;
+    }
+
+    .chat-input-container {
+        background: #252525;
+        border: 1px solid #444;
+    }
+
+    input {
+        background: #333;
+        color: white;
+        border: none;
+    }
+
+    button#send-btn {
+        background-color: #FF8800;
+    }
+
+    .scroll-up {
+        background: #FF8800;
+    }
+}
+
+.chat-header {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #F7F7F7; 
+    z-index: 1000;
+    padding: 10px 20px;
+}
+
+
+.chat-container {
+    transition: margin-left 0.4s ease-in-out;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 65px; 
+
+    &.sidebar-open {
+        margin-left: $sidebar-width;
+    }
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: #F7F7F7;
+    position: relative;
+    justify-content: flex-end; 
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+#chat-placeholder {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+}
+
+#chat-placeholder img {
+    width: 442px;
+    height: 442px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.chat-box.has-messages #chat-placeholder {
+    display: none;
+}
+
+
+.bot-message, .user-message {
+    max-width: 55%;
+    padding: $message-padding;
+    margin: 8px 12px;
+    border-radius: $message-border-radius;
+    font-size: $message-font-size;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background: $bot-msg-color;
+    color: white;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    border: 2px solid $bot-border-color;
+}
+
+.user-message {
+    background: $user-msg-color;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+    border: 2px solid $user-border-color;
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 95%;
+    max-width: 1300px;
+    height: $input-height;
+    position: relative;
+
+    .sidebar-open & {
+        width: calc(100% - 270px); 
+    }
+
+    .chat-logo {
+        width: 35px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    input {
+        flex-grow: 1;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    
+
+    button#send-btn {
+        width: 45px;  
+        height: 45px;
+        background-color: $button-color; 
+        border: none;
+        cursor: pointer;
+        margin-left: 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+
+        img {
+            width: 22px; 
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        &:hover {
+            background-color: color.adjust($button-color, $lightness: -10%);
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.scroll-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: $button-color;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}

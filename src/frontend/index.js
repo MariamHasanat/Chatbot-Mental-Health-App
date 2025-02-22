@@ -1,4 +1,4 @@
-import './styles/login.scss';
+import './styles/chatbot.scss'; 
 import './styles/styles.scss';
 import './styles/home-page.scss';
 import './assets/articles-dark.svg';
@@ -20,5 +20,8 @@ import './assets/image3-dark.svg';
 import './assets/image3.svg';
 import './assets/chat-bot-bro-1.svg';
 import './assets/logo-dark-theme.svg';
-import './assets/logout.svg';
+import './assets/logout-light.svg';
 import './assets/logout-dark.svg';
+import './styles/login.scss';
+import './assets/home-light.svg';
+import './assets/home-dark.svg';

@@ -11,6 +11,7 @@ function applyTheme(themeName) {
     document.documentElement.setAttribute("data-theme", themeName);
     localStorage.setItem("theme", themeName);
     updateThemeIcon(themeName);
+    updateSidebarIcons(themeName);
     updateImages(themeName);
 
     document.dispatchEvent(new CustomEvent("themeChanged", { detail: themeName }));
@@ -27,13 +28,26 @@ function updateThemeIcon(theme) {
     console.log(`Updated icon to: ${icon.src}`);
 }
 
+function updateSidebarIcons(theme) {
+    document.querySelectorAll(".sidebar-icon img").forEach((img) => {
+        img.src = theme === "dark" ? img.dataset.dark : img.dataset.light;
+    });
+}
+
+//////////////////////////////////////////////////
+function updatePlaceholderTheme(theme) {
+    const placeholderImg = document.getElementById("placeholder-img");
+    if (placeholderImg) {
+        placeholderImg.src = theme === "dark" ? placeholderImg.dataset.dark : placeholderImg.dataset.light;
+    }
+}
 
 document.addEventListener("click", (e) => {
     if (e.target.id === "theme-toggle" || e.target.id === "theme-icon") {
         toggleTheme();
     }
 });
-
+///////////////////////////////////////////////////////
 
 function toggleTheme() {
     let currentTheme = localStorage.getItem("theme") || "light";
@@ -56,7 +70,7 @@ function updateImages(theme) {
             string2: "/assets/image2.svg",
             string3: "/assets/image3.svg",
             loginLogo: "./assets/chat-bot-login.svg",
-            logout: "/assets/logout.svg",
+            logout: "/assets/logout-light.svg",
 
         },
         dark: {
@@ -91,9 +105,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const themeToggleButton = document.getElementById("theme-toggle");
     if (themeToggleButton) {
+        themeToggleButton.addEventListener("click", () => {
+            let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+            let nextTheme = currentTheme === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", nextTheme);
+            localStorage.setItem("theme", nextTheme);
+            updatePlaceholderTheme(nextTheme);
+        });
         themeToggleButton.addEventListener("click", toggleTheme);
     }
     else {
         console.error("Theme toggle button not found!");
     }
-});
+}
+);

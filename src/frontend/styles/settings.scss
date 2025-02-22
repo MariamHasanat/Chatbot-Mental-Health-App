@@ -1,0 +1,153 @@
+@use "sass:color";
+@use 'sidebar';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$sidebar-width: 250px;
+$primary: #4A90E2;
+$button-color: #FF8800;
+$background-light: #F7F7F7;
+$background-dark: #181818;
+$text-light: #333;
+$text-dark: #fff;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: $background-light;
+    color: $text-light;
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+// ✅ Dark Mode - Fix Text Colors
+[data-theme="dark"] {
+    body {
+        background: $background-dark;
+        color: $text-dark;
+    }
+
+    .settings-section h3 {
+        color: white;
+    }
+
+    label {
+        color: #ddd;
+    }
+
+    input, button {
+        background: #333;
+        color: white;
+        border: 1px solid #777;
+    }
+
+    input::placeholder {
+        color: #bbb;
+    }
+
+    button {
+        background: $button-color;
+
+        &:hover {
+            background: color.adjust($button-color, $lightness: -10%);
+        }
+    }
+}
+
+// ✅ Sidebar
+.sidebar {
+    width: $sidebar-width;
+    position: fixed;
+    left: -$sidebar-width;
+    top: 0;
+    height: 100vh;
+    background: white;
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    z-index: 1000;
+
+    &.active {
+        left: 0;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    nav li {
+        margin: 10px 0;
+
+        a {
+            text-decoration: none;
+            color: $text-light;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+    }
+}
+
+// ✅ Full-Width Settings Layout (NO Card!)
+.settings-container {
+    padding: 40px;
+    width: 100%;
+}
+
+// ✅ Section Titles
+.settings-section {
+    margin-bottom: 30px;
+
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+}
+
+// ✅ Horizontal Layout for Fields (Aligned Left)
+.field-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+
+    label {
+        font-weight: 600;
+        min-width: 180px;
+        text-align: left;
+    }
+
+    input {
+        flex-grow: 1;
+        padding: 12px;
+        border-radius: 96px 96px 96px 100px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+        transition: border 0.2s ease-in-out;
+
+        &:focus {
+            border-color: $primary;
+        }
+    }
+}
+
+// ✅ Button Styling (Orange, Round Corners)
+button {
+    padding: 12px 20px;
+    background: $button-color;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+        background: color.adjust($button-color, $lightness: -10%);
+    }
+}

@@ -13,6 +13,8 @@ module.exports = {
         login: './src/frontend/login.js',
         signup: './src/frontend/signup.js',
         homePage: './src/frontend/home-page.js',
+        settings: './src/frontend/settings.js',
+        chat: './src/frontend/chat.js',
     },
     output: {
         publicPath: "/",
@@ -22,17 +24,23 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'source-map',
-    stats: 'verbose',
+    stats: "minimal",
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            }, {
+            },
+            {
                 test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            }, {
+                use: [
+                    "style-loader",  // يستبدل MiniCssExtractPlugin.loader
+                    "css-loader",
+                    "sass-loader"
+                ],
+            },            
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
@@ -45,6 +53,14 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/index.html",
             filename: "./index.html",
+        }),
+        new HtmlWebPackPlugin({  
+            template: "./src/frontend/views/chat.html",
+            filename: "chat.html",
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/frontend/views/settings.html", 
+            filename: "settings.html",
         }),
         new HtmlWebPackPlugin({
             template: "./src/frontend/views/login.html",
@@ -85,9 +101,10 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: "./src/frontend/views/header.html", to: "header.html" },
-                { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
-                { from: "./src/frontend/assets/", to: "assets/" },
+              { from: "./src/frontend/views/header.html", to: "header.html" },
+              { from: "./src/frontend/js/theme.js", to: "js/theme.js" },
+              { from: "./src/frontend/assets/", to: "assets/" },
+              { from: "./src/frontend/js/chatbot.js", to: "js/chatbot.js" },
             ],
         }),
         new Dotenv(),
@@ -99,5 +116,6 @@ module.exports = {
         port: 6060,
         allowedHosts: 'all',
         historyApiFallback: true,
+        hot: true,
     }
 }
